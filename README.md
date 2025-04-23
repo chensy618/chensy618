@@ -3,7 +3,7 @@
 Welcome! I'm currently exploring topics including:
 
 - 🛡️ Honeypots
-- 🧠 Vision Transformers
+- 📸 Vision Transformers
 - 🌐 Vision-Language Models
 
 You can learn more about my models and current work by visiting my website:
