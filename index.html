@@ -3,104 +3,335 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Siyan Chen | Personal Website</title>
+  <title>Siyan Chen – Academic Homepage</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 2rem;
-      background: #f9f9f9;
-      color: #333;
+      font-family: 'Georgia', serif;
+      background: #f9f9f7;
+      color: #2c2c2c;
+      line-height: 1.75;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.2em;
-    }
-
+    /* ── Navigation ── */
     nav {
-      margin-top: 1rem;
+      position: sticky;
+      top: 0;
+      background: #1a2e4a;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,.25);
     }
-
-    nav a {
-      margin: 0 1em;
+    nav .brand {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      letter-spacing: .03em;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+    nav ul li a {
+      color: #c8d8ea;
       text-decoration: none;
-      color: #007acc;
+      font-size: .92rem;
+      font-family: 'Arial', sans-serif;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: #fff; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #1a2e4a 0%, #2e5f8a 100%);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,.4);
+      margin-bottom: 1.2rem;
+      background: rgba(255,255,255,.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 1.2rem;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: .3rem;
+      font-weight: normal;
+    }
+    .hero .subtitle {
+      font-size: 1rem;
+      color: #a8c8e8;
+      margin-bottom: .6rem;
+      font-family: 'Arial', sans-serif;
+    }
+    .hero .affiliation {
+      font-size: .95rem;
+      color: #c8dff0;
+      font-family: 'Arial', sans-serif;
+    }
+    .hero .links {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero .links a {
+      display: inline-block;
+      padding: .45rem 1.1rem;
+      border: 1.5px solid rgba(255,255,255,.5);
+      border-radius: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: .88rem;
+      font-family: 'Arial', sans-serif;
+      transition: background .2s, border-color .2s;
+    }
+    .hero .links a:hover {
+      background: rgba(255,255,255,.15);
+      border-color: #fff;
     }
 
-    .section {
-      margin: 2rem 0;
+    /* ── Main layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
     }
 
-    .project {
-      margin-bottom: 1em;
+    section { margin-bottom: 3.5rem; }
+
+    h2 {
+      font-size: 1.3rem;
+      color: #1a2e4a;
+      border-bottom: 2px solid #2e5f8a;
+      padding-bottom: .4rem;
+      margin-bottom: 1.4rem;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: .02em;
     }
 
+    p { margin-bottom: .9rem; color: #3a3a3a; }
+
+    /* ── Publications ── */
+    .pub-list { list-style: none; }
+    .pub-list li {
+      padding: 1rem 1.2rem;
+      border-left: 3px solid #2e5f8a;
+      background: #fff;
+      margin-bottom: 1rem;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    }
+    .pub-list li .pub-title {
+      font-weight: bold;
+      color: #1a2e4a;
+      display: block;
+      margin-bottom: .25rem;
+    }
+    .pub-list li .pub-authors {
+      font-size: .88rem;
+      color: #666;
+      font-family: 'Arial', sans-serif;
+    }
+    .pub-list li .pub-venue {
+      font-size: .88rem;
+      color: #2e5f8a;
+      font-style: italic;
+      font-family: 'Arial', sans-serif;
+    }
+    .pub-list li .pub-links a {
+      font-size: .82rem;
+      margin-right: .7rem;
+      color: #2e5f8a;
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+    }
+    .pub-list li .pub-links a:hover { text-decoration: underline; }
+
+    /* ── Research cards ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .research-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,.09);
+      border-top: 3px solid #2e5f8a;
+    }
+    .research-card h3 {
+      font-size: 1rem;
+      color: #1a2e4a;
+      margin-bottom: .5rem;
+      font-family: 'Arial', sans-serif;
+    }
+    .research-card p {
+      font-size: .88rem;
+      color: #555;
+      margin: 0;
+    }
+
+    /* ── Contact ── */
+    .contact-info {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.4rem 1.8rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,.09);
+      font-family: 'Arial', sans-serif;
+      font-size: .95rem;
+    }
+    .contact-info p { margin-bottom: .5rem; }
+    .contact-info a { color: #2e5f8a; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
     footer {
       text-align: center;
-      font-size: 0.9em;
-      color: #777;
-      margin-top: 2rem;
+      padding: 1.5rem;
+      font-size: .82rem;
+      color: #999;
+      font-family: 'Arial', sans-serif;
+      border-top: 1px solid #e0e0e0;
     }
 
-    a {
-      color: #007acc;
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.7rem; }
+      nav ul { gap: 1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Siyan Chen</h1>
-      <p> DTU | Security, Networks & AI Enthusiast</p>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="project">
-        <strong>Multi-VPN Gateway</strong> – A home gateway project using ONOS and SDN.
-        <br/>
-        <a href="https://github.com/chensy618/34359-multi-vpn-home-gateway" target="_blank">View on GitHub</a>
-      </div>
-	  <div class="project">
-        <strong>AI for Multi-Agent System</strong> – Hierarchical task network (HTN) planning in AI.
-        <br/>
-        <a href="https://github.com/chensy618/AI-Multi-Agent-System" target="_blank">View on GitHub</a>
-      </div>
-      <div class="project">
-        <strong>Keypoint Explainability</strong> – Visual transformer + vision-language explainability.
-        <br/>
-        <a href="https://github.com/chensy618/02456_Deep_Learning_Project" target="_blank">View on GitHub</a>
-      </div>
-    </section>
+<!-- Navigation -->
+<nav>
+  <span class="brand">Siyan Chen</span>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:chensy0618@gmail.com">chensy0618@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/chensy618" target="_blank">siyan</a></p>
-    </section>
-
-    <footer>
-      &copy; 2025 Siyan Chen. All rights reserved.
-    </footer>
+<!-- Hero -->
+<header class="hero">
+  <div class="avatar">👤</div>
+  <h1>Siyan Chen</h1>
+  <p class="subtitle">PhD Researcher / Postdoctoral Fellow</p>
+  <p class="affiliation">UiT – The Arctic University of Norway</p>
+  <div class="links">
+    <a href="mailto:siyan.chen@uit.no">✉ Email</a>
+    <a href="#" target="_blank">Google Scholar</a>
+    <a href="#" target="_blank">GitHub</a>
+    <a href="#" target="_blank">CV (PDF)</a>
   </div>
+</header>
+
+<!-- Main -->
+<div class="container">
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a researcher at UiT – The Arctic University of Norway. My work focuses on
+      [your research area, e.g., computational linguistics, machine learning, Arctic ecology …].
+      I am interested in [key themes or questions that drive your research].
+    </p>
+    <p>
+      Before joining UiT, I [briefly describe your academic background, e.g., completed my PhD at
+      X University and worked as a researcher at Y institution].
+    </p>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <h2>Selected Publications</h2>
+    <ul class="pub-list">
+      <li>
+        <span class="pub-title">Your Paper Title Here</span>
+        <span class="pub-authors">Siyan Chen, Co-author Name, Co-author Name</span><br>
+        <span class="pub-venue">Journal / Conference Name, Year</span><br>
+        <span class="pub-links">
+          <a href="#">[PDF]</a>
+          <a href="#">[Code]</a>
+          <a href="#">[DOI]</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-title">Another Paper Title</span>
+        <span class="pub-authors">Siyan Chen, Co-author Name</span><br>
+        <span class="pub-venue">Journal / Conference Name, Year</span><br>
+        <span class="pub-links">
+          <a href="#">[PDF]</a>
+          <a href="#">[DOI]</a>
+        </span>
+      </li>
+      <li>
+        <span class="pub-title">Third Paper Title</span>
+        <span class="pub-authors">Co-author Name, Siyan Chen</span><br>
+        <span class="pub-venue">Journal / Conference Name, Year</span><br>
+        <span class="pub-links">
+          <a href="#">[PDF]</a>
+          <a href="#">[DOI]</a>
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <h2>Research Interests</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>Topic Area 1</h3>
+        <p>Brief description of this research direction and what questions you are exploring.</p>
+      </div>
+      <div class="research-card">
+        <h3>Topic Area 2</h3>
+        <p>Brief description of this research direction and what questions you are exploring.</p>
+      </div>
+      <div class="research-card">
+        <h3>Topic Area 3</h3>
+        <p>Brief description of this research direction and what questions you are exploring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>📧 <a href="mailto:siyan.chen@uit.no">siyan.chen@uit.no</a></p>
+      <p>🏛 UiT – The Arctic University of Norway</p>
+      <p>📍 Tromsø, Norway</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2026 Siyan Chen · UiT – The Arctic University of Norway
+</footer>
+
 </body>
 </html>
