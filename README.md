@@ -6,8 +6,8 @@ I am a PhD Fellow in the Machine Learning Group at the SFI Visual Intelligence c
 
 ## Research Interests
 
-- 🌦️ **Weather Forecasting Models**: Developing and adapting deep learning models for numerical weather prediction, exploring hybrid physics-informed and data-driven approaches.
-- 🧮 **Neural Operator Learning**: Investigating operator learning frameworks (e.g., FNO, DeepONet) for learning solution operators of PDEs, with applications in climate and fluid dynamics simulation.
+- 🌦️ **Weather Forecasting Models**: Developing and adapting deep learning models for AI-based weather prediction, exploring hybrid physics-informed and data-driven approaches.
+- 🧮 **Neural Operator Learning**: Investigating operator learning frameworks (e.g., FNO, DeepONet) for learning solution operators of PDEs, with applications in climate domain.
 - 🔄 **Continual Learning**: Designing machine learning systems that can incrementally acquire knowledge from non-stationary data streams without catastrophic forgetting.
 
 ## Contact
